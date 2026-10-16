@@ -12,9 +12,10 @@ database, PHP, backups, caches or credentials here.
 - `worker.mjs` serves the site and preserves `/?p=123`, `/?page_id=123` and
   `/p/123` links. It redirects the old feed and sitemap URLs, plus aliases
   recorded in `site/redirects.json`.
-- Existing Comentario embeds and the Google Custom Search widget remain on
-  the exported pages. The site's other externally hosted images remain with
-  their original providers.
+- Existing Comentario embeds use the established domain and page IDs, so the
+  site's 11 existing comments remain with their pages on the preview and live
+  address. The Google Custom Search widget remains. Other externally hosted
+  images retain their original providers.
 - `scripts/export_public.py` records the initial one-off public snapshot
   procedure. It also takes the RSS feed from local WordPress and uses a local
   exact-path file when the published copy is unavailable. It is not an
@@ -42,6 +43,8 @@ maintenance mode. One linked image that was missing from the published site
 was restored from its exact path in the local WordPress copy. A legacy `.jpg`
 link that led to an HTML wrapper now points directly at the real image. The
 RSS feed came from that local copy because the public `/feed/` returned HTML.
+Comentario allows `$` (the live domain) and
+`pol-neilennis-com.aged-night-bf73.workers.dev` (the preview) as embed origins.
 
 Only the final public site content belongs in Git. Retain the prior AWS site
 for rollback until the live Cloudflare deployment has been accepted. If the

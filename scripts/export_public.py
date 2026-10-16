@@ -22,6 +22,7 @@ import xml.etree.ElementTree as ET
 
 ORIGIN = "https://pol.neilennis.com"
 HOST = "pol.neilennis.com"
+COMENTARIO_DOMAIN_ID = "a5fd10e5-2636-42cc-9d9f-853e0f8b9a25"
 SITE_NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 USER_AGENT = "Political Musings public static archive export/1.0"
 SOURCE_POSTMAP = Path(
@@ -141,7 +142,7 @@ def sitemap_paths() -> set[str]:
     return paths
 
 
-def prepare_html(markup: str) -> str:
+def prepare_html(markup: str, path: str) -> str:
     markup = markup.replace("\r\n", "\n").replace("\r", "\n")
     # The old Blogger migration linked a .jpg that is actually an HTML image
     # wrapper. Point that link at its already-present real image instead.
@@ -185,6 +186,12 @@ def prepare_html(markup: str) -> str:
     markup = re.sub(r'<link\b[^>]*rel=["\']alternate["\'][^>]*type=["\']application/json["\'][^>]*>\s*', '', markup, flags=re.I)
     markup = re.sub(r'<link\b[^>]*rel=["\']alternate["\'][^>]*type=["\']application/rss\+xml["\'][^>]*>\s*',
                     lambda m: m.group() if 'href="/feed/"' in m.group() else '', markup, flags=re.I)
+    # Preserve each existing comment thread when a page is served from the
+    # preview hostname. The domain ID is public configuration, not a secret.
+    markup = markup.replace(
+        '<comentario-comments theme="light"></comentario-comments>',
+        f'<comentario-comments theme="light" domain-id="{COMENTARIO_DOMAIN_ID}" page-id="{path}"></comentario-comments>',
+    )
     return markup
 
 
@@ -232,7 +239,7 @@ def crawl(destination: Path, seeds: set[str]) -> tuple[dict[str, str], set[str],
                 markup = body.decode("utf-8", "replace")
                 if "<html" not in markup.lower():
                     raise RuntimeError(f"No HTML document: {path}")
-                prepared = prepare_html(markup)
+                prepared = prepare_html(markup, path)
                 refs = References(ORIGIN + path)
                 refs.feed(prepared)
                 assets.update(refs.assets)

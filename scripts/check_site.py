@@ -53,8 +53,13 @@ def main():
         source_path = "/" + page.relative_to(SITE).parent.as_posix().strip("./") + "/"
         if source_path == "//":
             source_path = "/"
+        markup = page.read_text(encoding="utf-8")
+        if "<comentario-comments" in markup:
+            expected = f'page-id="{source_path}"'
+            if expected not in markup or 'domain-id="a5fd10e5-2636-42cc-9d9f-853e0f8b9a25"' not in markup:
+                missing[(source_path, "comments", "wrong page or domain ID")] += 1
         parser = References()
-        parser.feed(page.read_text(encoding="utf-8"))
+        parser.feed(markup)
         for tag, key, ref in parser.refs:
             parsed = urlparse(urljoin(f"https://{HOST}{source_path}", ref))
             if parsed.hostname not in {HOST, "www." + HOST}:
