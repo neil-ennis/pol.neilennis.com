@@ -21,7 +21,7 @@ class References(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         for key in ("href", "src", "poster", "data-src"):
-            if attrs.get(key):
+            if attrs.get(key) is not None:
                 self.refs.append((tag, key, attrs[key]))
         for key in ("srcset", "data-srcset"):
             for item in (attrs.get(key) or "").split(","):
@@ -61,6 +61,9 @@ def main():
         parser = References()
         parser.feed(markup)
         for tag, key, ref in parser.refs:
+            if tag == "a" and key == "href" and not ref:
+                missing[(source_path, "link", "empty href")] += 1
+                continue
             parsed = urlparse(urljoin(f"https://{HOST}{source_path}", ref))
             if parsed.hostname not in {HOST, "www." + HOST}:
                 continue

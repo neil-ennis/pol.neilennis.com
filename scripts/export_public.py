@@ -165,6 +165,10 @@ def prepare_html(markup: str, path: str) -> str:
     markup = re.sub(r"https?://(?:www\.)?pol\.neilennis\.com(?=/|[\"'\s<]|$)", "", markup, flags=re.I)
     for number, original in enumerate(held):
         markup = markup.replace(f"__POL_CANONICAL_{number}__", original)
+    # The WordPress menu's Home link points to the bare origin. Rewriting the
+    # origin alone would leave href="", which means the current page.
+    markup = markup.replace('class="page_item page-item-510"><a href="">Home</a>',
+                            'class="page_item page-item-510"><a href="/">Home</a>')
     # The former WordPress contact URL is now the main blog's static contact
     # page. Keep this repair repeatable for future exports.
     markup = markup.replace(
