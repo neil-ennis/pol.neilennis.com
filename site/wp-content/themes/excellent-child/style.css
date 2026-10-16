@@ -1,0 +1,88 @@
+/*
+ Theme Name:   Excellent Child
+ Theme URI:    https://themefreesia.com/themes/excellent
+ Description:  Excellent Child Theme
+ Author:       Neil Ennis
+ Author URI:   http://neilennis.com
+ Template:     excellent
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  excellent-child
+*/
+.single-featured-image-header {display:none;}
+.post-featured-image {display:none;}
+.vcard, .author {display:none !important;}
+.leaflet-control-attribution {display:none !important;}
+.comment-author {display:block !important;}
+.navigation.post-navigation {	margin-bottom: 0px;}
+.wp-caption, .wp-caption-text {
+	margin-bottom: 0;
+	padding: 5px 0;
+	border-bottom: 0px;
+}
+.crp_title {display: table;}
+.site-content {padding: 12px 0 0 !important;}
+a:link, a:visited {color: #000080 !important;} /* unvisited link */
+a:hover {color: #fb876b !important;} /* mouse-over link */
+
+#catapult-cookie-bar a:link, #catapult-cookie-bar a:visited, #wpadminbar a:link, #wpadminbar a:visited {color: #fff !important;}
+#catapult-cookie-bar a:hover, #wpadminbar a:hover {color: #fb876b !important;} /* mouse-over link */
+
+img {padding-bottom: 10px; padding-top: 10px; padding-left: 1px, ; padding-right: 1px;}
+
+@media only screen and (max-width: 767px) {
+	#site-branding {max-width:none !important;}		
+}
+
+
+@media only screen and (min-width: 768px) {
+	#site-title-wrapper {
+		position: absolute;
+		top:0%;
+		left:0%;
+		background:#ffffff;
+		opacity:.80;
+		margin-top: 30px;
+		margin-left:30px;
+		/*border:solid 2px;*/
+		border-radius:7px;
+		padding:7px;
+	}
+	.entry-header {text-align: center;}
+	.entry-content {
+		display: block;
+		margin: 0 40px 20px;
+	}
+
+	#primary {
+		float: left;
+		width: 77%;
+	}
+	/* 19.0 Sidebars
+	================================================== */
+	#secondary {
+		float: left;
+		padding: 12px 12px 12px 12px;
+		width: 23%;
+		background:#e8e8e8;	
+	}
+	.header-search, 
+	.header-search-x {
+		background:#ffffff;
+		opacity:.80;
+		/*border:solid 2px;*/
+		border-radius:7px;
+		padding: 5px 5px 5px 5px;
+	}
+	.site {
+		border-radius:10px;
+		padding:5px 5px 5px 5px;
+		background:#fff;
+		box-shadow: -5px -5px 5px #777, 5px 5px 5px #777,5px -5px 5px #777, -5px 5px 5px #777 !important;
+		-moz-box-shadow: -5px -5px 5px #777, 5px 5px 5px #777,5px -5px 5px #777, -5px 5px 5px #777 !important;
+		-webkit-box-shadow: -5px -5px 5px #777, 5px 5px 5px #777,5px -5px 5px #777, -5px 5px 5px #777 !important;
+	}
+	body {background: #bbbbbb;
+}

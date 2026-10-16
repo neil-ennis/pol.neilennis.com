@@ -1,0 +1,19 @@
+{
+  "57": {"slug": "about-me", "target": "/about/"},
+  "59": {"slug": "expert1", "target": "http://expert1.net/"},
+  "61": {"slug": "personal", "target": "https://blog.neilennis.com/"},
+  "63": {"slug": "main-blog", "target": "https://blog.neilennis.com/"},
+  "65": {"slug": "music", "target": "http://music.neilennis.com/"},
+  "67": {"slug": "ten-pound-poms", "target": "http://tenpoundpoms.com/"},
+  "71": {"slug": "postcards", "target": "http://postcards.neilennis.com/"},
+  "75": {"slug": "technical", "target": "https://tech.neilennis.com/"},
+  "77": {"slug": "ships", "target": "https://shipwatcher.com/"},
+  "79": {"slug": "shipwatcher-blog", "target": "https://blog.shipwatcher.com/"},
+  "81": {"slug": "shipwatcher-photos", "target": "https://shipwatcher.com/photos"},
+  "83": {"slug": "shipwatcher-webcams", "target": "https://shipwatcher.com/"},
+  "85": {"slug": "videos", "target": "http://youtube.com/MagicTyger"},
+  "87": {"slug": "image-credits", "target": "/about/image-credits/"},
+  "483": {"slug": "search", "target": "/#search"},
+  "502": {"slug": "contact", "target": "https://blog.neilennis.com/contact/"},
+  "510": {"slug": "home", "target": "/"}
+}

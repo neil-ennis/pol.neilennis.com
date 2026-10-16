@@ -1,0 +1,71 @@
+/* Responsive Styles (mods)
+================================================== */
+
+/* All Mobile Screen ( smaller than 481px )
+================================================== */
+@media only screen and (max-width: 480px) {
+	.wrap,
+	.boxed-layout #page,
+	.boxed-layout-small #page {
+		width: 360px;
+	}
+	
+	.boxed-layout .wrap,
+	.boxed-layout-small .wrap {
+		width: 336px;
+	}
+	
+	.boxed-layout #colophon,
+	.boxed-layout-small #colophon {
+		margin-bottom: 10px;
+	}
+	
+	#site-branding {
+		margin: 0 auto;
+		max-width: 318px;
+	}
+	
+	.boxed-layout #site-branding,
+	.boxed-layout #site-title a img,
+	.boxed-layout-small #site-branding,
+	.boxed-layout-small #site-title a img {
+		max-width: 288px;
+	}
+
+	/* ----- Column ----- */
+	.column {
+		margin: 0;
+	}
+	
+	.four-column {
+		padding: 0 0 30px;
+		width: 100%;
+	}
+	
+	.four-column:nth-child(2n+3) {
+		clear: none;
+	}
+	
+	.two-column-post .post-container,
+	.three-column-post .post-container,
+	.four-column-post .post-container {
+		width: 100%;
+	}
+	
+	.btn-default {
+		padding: 6px 18px;
+		font-size: 13px;
+	}
+}
+
+/* All Mobile ( smaller than 384px )
+================================================== */
+@media only screen and (max-width: 383px) {
+	.wrap,
+	.boxed-layout #page,
+	.boxed-layout .wrap,
+	.boxed-layout-small #page,
+	.boxed-layout-small .wrap {
+		width: 96%;
+	}
+}
